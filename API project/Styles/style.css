@@ -1,0 +1,16 @@
+*,body,html{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.title {
+    margin-top: 5pc;
+    text-align: center;
+}
+
+.text {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
