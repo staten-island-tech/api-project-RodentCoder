@@ -1,19 +1,30 @@
-const api = "https://pokeapi.co/api/v2/pokemon/ditto";
+import { Doms } from "./doms";
+
+const api = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
 
 async function getData(api) {
   try {
     const response = await fetch(api);
-    if (response.status < 200 || response.status > 299) {
-      throw Error(response.status);
-    } else {
-      const data = await response.json();
-      document.getElementsByClassName("area").textContent = data.name;
-    }
+    const data = await response.json();
+    console.log(data)
+    return data.data
   } catch (error) {
     console.log(error);
   }
 }
 
-console.log(api.content);
+const promise = getData(api);
+
+promise.then(function (data){
+  console.log(data)
+})
+
+function insertCard(el){
+  return `<div class="card">
+  <img src=${el.img_url}>
+  <h2>${el.name}</h2>
+  </div>`
+}
+
 
 getData(api);
