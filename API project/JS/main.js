@@ -6,8 +6,8 @@ async function getData(api) {
   try {
     const response = await fetch(api);
     const data = await response.json();
-    console.log(data)
-    return data.data
+    console.log(data);
+    return data.data;
   } catch (error) {
     console.log(error);
   }
@@ -15,16 +15,15 @@ async function getData(api) {
 
 const promise = getData(api);
 
-promise.then(function (data){
-  console.log(data)
-})
+promise.then(function (data) {
+  console.log(data);
+});
 
-function insertCard(el){
+function insertCard(el) {
   return `<div class="card">
   <img src=${el.img_url}>
   <h2>${el.name}</h2>
-  </div>`
+  </div>`;
 }
-
 
 getData(api);
