@@ -9,6 +9,13 @@
     text-align: center;
 }
 
+.card{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 8px solid black;
+}
+
 .buttons {
     margin-top: 20px;
     display: flex;

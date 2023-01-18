@@ -5,9 +5,9 @@ const api = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
 async function getData(api) {
   try {
     const response = await fetch(api);
-    const data = await response.json();
-    console.log(data);
-    return data.data;
+    const cards = await response.json();
+    console.log(cards);
+    return cards.data;
   } catch (error) {
     console.log(error);
   }
@@ -15,8 +15,8 @@ async function getData(api) {
 
 const promise = getData(api);
 
-promise.then(function (data) {
-  console.log(data);
+promise.then(function (cards) {
+  console.log(cards);
 });
 
 function insertCard(el) {
@@ -25,5 +25,11 @@ function insertCard(el) {
   <h2>${el.name}</h2>
   </div>`;
 }
+
+data
+  .filter((data) => data.race.includes("Dragon"))
+  .forEach((el) => {
+    Doms.Area.insertAdjacentHTML("afterbegin", insertCard(el));
+  });
 
 getData(api);
