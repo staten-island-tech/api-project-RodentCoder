@@ -13,18 +13,15 @@ async function getData(api) {
   try {
     const response = await fetch(api);
     const data = await response.json();
-    const things = Object.keys(data);
+    const things = Object.values(data);
     things
-      .filter((data) => data.name.includes("'race':'Dragon'"))
-      .forEach((el) => {
-        console.log(el);
+      .filter((data) => data.race.includes("Dragon"))
+      .forEach((data) => {
+        console.log(data);
       });
-
-    return data.data;
   } catch (error) {
     console.log(error);
   }
 }
-
 
 getData(api);
