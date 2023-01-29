@@ -1,11 +1,11 @@
 import { Doms } from "./doms";
 
-const api = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
+const api = "https://valorant-api.com/v1/weapons";
 
-function insertCard(el) {
+function insertCard(data) {
   return `<div class="card">
-  <img src=${el.img_url}>
-  <h2>${el.name}</h2>
+  <img src=${data.displayIcon}>
+  <h2>${data.displayname}</h2>
   </div>`;
 }
 
@@ -14,11 +14,10 @@ async function getData(api) {
     const response = await fetch(api);
     const data = await response.json();
     const things = Object.values(data);
-    things
-      .filter((data) => data.race.includes("Dragon"))
-      .forEach((data) => {
-        console.log(data);
-      });
+    console.log(things)
+    things.forEach((data) => {
+      Doms.Area.insertAdjacentHTML("afterbegin",insertCard(data) )
+    });
   } catch (error) {
     console.log(error);
   }
