@@ -1,5 +1,5 @@
 const Doms = {
-    Area: document.getElementsByClassName("area"),
+    Cards: document.getElementById("display"),
     Text: document.getElementsByClassName("text"),
     Btn: document.getElementsByClassName("btn")
 }
