@@ -25,6 +25,7 @@ async function getData(api) {
       things[1].filter((data) => data.category.includes("EEquippableCategory::Heavy")).forEach((data) =>
       Doms.Cards.insertAdjacentHTML("afterbegin", insertCard(data))
       )
+      
       Doms.Rifle.addEventListener("click", () =>{
         (Doms.Cards.innerHTML = ""),
         things[1].filter((data) => data.category.includes("EEquippableCategory::Rifle")).forEach((data) =>
